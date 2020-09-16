@@ -27,8 +27,8 @@ export class PokemonMainListComponent implements OnInit {
     this.pokemonService.getPokemonsTypeList();
   }
 
-  onSelectPokemon(pokemon) {
-    console.log(pokemon)
+  onSelectPokemon(idPokemon) {
+    this.pokemonService.selectPokemon(idPokemon);
   }
 
   onScroll() {

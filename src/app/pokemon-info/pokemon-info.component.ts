@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonService } from '../services/pokemon.service';
+
+import * as _ from "lodash";
+
+
 
 @Component({
   selector: 'app-pokemon-info',
@@ -7,7 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonInfoComponent implements OnInit {
 
-  constructor() { }
+  public pokemonData = {};
+  public showSidebar = false;
+
+  constructor(private pokemonService: PokemonService) {
+    this.pokemonService.pokemonSelected.subscribe((data: Object) => {
+      this.pokemonData = data;
+      if (!_.isEmpty(data)) this.showSidebar = true;
+    });
+  }
 
   ngOnInit(): void {
   }

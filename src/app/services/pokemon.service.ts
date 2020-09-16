@@ -14,11 +14,11 @@ export class PokemonService {
   private pokemonTypesList$: BehaviorSubject<Array<any>> = new BehaviorSubject(([]));
   public readonly pokemonTypesList: Observable<Array<any>> = this.pokemonTypesList$.asObservable();
 
-  private pokemonsTypeList$: BehaviorSubject<{}> = new BehaviorSubject(({}));
-  public readonly pokemonsTypeList: Observable<{}> = this.pokemonsTypeList$.asObservable();
+  private pokemonsTypeList$: BehaviorSubject<Array<any>> = new BehaviorSubject(([]));
+  public readonly pokemonsTypeList: Observable<Array<any>> = this.pokemonsTypeList$.asObservable();
 
-  private pokemonInfo$: BehaviorSubject<Array<any>> = new BehaviorSubject(([]));
-  public readonly pokemonInfo: Observable<Array<any>> = this.pokemonInfo$.asObservable();
+  private pokemonSelected$: BehaviorSubject<{}> = new BehaviorSubject(({}));
+  public readonly pokemonSelected: Observable<{}> = this.pokemonSelected$.asObservable();
 
   private typePokemon = 'normal'; //as default
 
@@ -57,11 +57,8 @@ export class PokemonService {
       let newData = oldData && oldData.length ? _.concat(this.pokemonsTypeList$.getValue(), data) : data;
       console.log(newData);
       this.pokemonsTypeList$.next(newData);
-    })
-    //console.log(requests);
-    
+    })    
 
-    //this.pokemonsTypeList$.next(this.allPokemons.slice(0, this.skip));
   }
 
   getPokemonData(url) {
@@ -78,6 +75,13 @@ export class PokemonService {
   changeTypePokemon(newType) {
     this.typePokemon = newType;
     this.getPokemonsTypeList();
+  }
+
+  selectPokemon(idPokemon) {
+    const pokemonDataList = this.pokemonsTypeList$.getValue();
+    const pokemonSelected = pokemonDataList.find(pokemon => pokemon.id === idPokemon);
+
+    this.pokemonSelected$.next(pokemonSelected);
   }
   
 }
