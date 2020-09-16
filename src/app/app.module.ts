@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PokemonTypeListComponent } from './pokemon-type-list/pokemon-type-list.component';
@@ -14,7 +15,8 @@ import { PokemonMainListComponent } from './pokemon-main-list/pokemon-main-list.
     PokemonMainListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
