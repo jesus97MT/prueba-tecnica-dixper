@@ -9,11 +9,13 @@ import { PokemonService } from '../services/pokemon.service';
 export class PokemonMainListComponent implements OnInit {
   public pokemonsTypeList = {};
   public showpokemonsTypeList = [];
+  public isLoadingData = false;
   
   constructor(private pokemonService: PokemonService) {
     this.loadPokemons();
     this.pokemonService.pokemonsTypeList.subscribe((data: Array<Object>) => {
       this.showpokemonsTypeList = data;
+      this.isLoadingData = false;
       console.log(this.showpokemonsTypeList)
     });
 
@@ -32,7 +34,14 @@ export class PokemonMainListComponent implements OnInit {
   }
 
   onScroll() {
-    this.pokemonService.onScroll();
+    if (!this.isLoadingData) {
+        this.pokemonService.onScroll();
+        this.isLoadingData = true;
+    }
+  }
+
+  onScrollDown() {
+    console.log("aaaaaaa")
   }
 
 

@@ -1,4 +1,11 @@
-<ul *ngFor="let pokemon of showpokemonsTypeList">
-    <li (click)="onSelectPokemon(pokemon.id)">{{ pokemon.name}} {{pokemon.id}}</li>
-</ul>
-<button (click)="onScroll()">Load more</button>
+<div
+    infiniteScroll
+    [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()"
+>
+    <ul *ngFor="let pokemon of showpokemonsTypeList">
+        <li style="padding: 5em;" (click)="onSelectPokemon(pokemon.id)">{{ pokemon.name}} {{pokemon.id}}</li>
+    </ul>
+    <button (click)="onScroll()">Load more</button>
+</div>

@@ -43,6 +43,7 @@ export class PokemonService {
     console.log("daada")
     return this.http.get(url).subscribe(data => {
       this.allPokemons = data['pokemon'];
+
       this.setPokemonsDataType();
     });
   }
@@ -53,18 +54,18 @@ export class PokemonService {
     let requests = pokemonsToAdd.map(pokemon => this.http.get(pokemon.pokemon.url));
     forkJoin(...requests).subscribe(data => {
       let oldData: any = this.pokemonsTypeList$.getValue();
-      
+
       let newData = oldData && oldData.length ? _.concat(this.pokemonsTypeList$.getValue(), data) : data;
       console.log(newData);
       this.pokemonsTypeList$.next(newData);
-    })    
+    })
 
   }
 
   getPokemonData(url) {
-      return this.http.get(url).subscribe(data => {
-        console.log(data);
-      });
+    return this.http.get(url).subscribe(data => {
+      console.log(data);
+    });
   }
   onScroll() {
     this.skip += this.limit;
@@ -74,7 +75,16 @@ export class PokemonService {
 
   changeTypePokemon(newType) {
     this.typePokemon = newType;
-    this.getPokemonsTypeList();
+    this.resetData();
+    setTimeout(() =>this.getPokemonsTypeList(), 2000);//ToDo delay(?)
+  }
+
+  resetData() {
+    this.pokemonsTypeList$.next([]);
+    this.allPokemons = [];
+    this.skip = 6;
+    this.offset = 0;
+    this.limit = 6;
   }
 
   selectPokemon(idPokemon) {
@@ -83,5 +93,5 @@ export class PokemonService {
 
     this.pokemonSelected$.next(pokemonSelected);
   }
-  
+
 }
