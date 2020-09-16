@@ -1,1 +1,3 @@
-<p>pokemon-main-list works!</p>
+<ul *ngFor="let pokemon of pokemonsData.pokemon">
+    <li (click)="onSelectPokemon(pokemon.pokemon.name)">{{ pokemon.pokemon.name}}</li>
+</ul>
