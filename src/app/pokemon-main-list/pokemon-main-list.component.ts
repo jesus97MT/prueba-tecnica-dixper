@@ -7,12 +7,14 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrls: ['./pokemon-main-list.component.css']
 })
 export class PokemonMainListComponent implements OnInit {
-  public pokemonsData;
+  public pokemonsTypeList = {};
+  public showpokemonsTypeList = [];
   
   constructor(private pokemonService: PokemonService) {
     this.loadPokemons();
-    this.pokemonService.pokemonsData.subscribe((data) => {
-      this.pokemonsData = data;
+    this.pokemonService.pokemonsTypeList.subscribe((data: Array<Object>) => {
+      this.showpokemonsTypeList = data;
+      console.log(this.showpokemonsTypeList)
     });
 
   }
@@ -22,11 +24,15 @@ export class PokemonMainListComponent implements OnInit {
   }
 
   loadPokemons() {
-    this.pokemonService.getPokemonsData();
+    this.pokemonService.getPokemonsTypeList();
   }
 
   onSelectPokemon(pokemon) {
     console.log(pokemon)
+  }
+
+  onScroll() {
+    this.pokemonService.onScroll();
   }
 
 

@@ -1,3 +1,4 @@
-<ul *ngFor="let pokemon of pokemonsData.pokemon">
-    <li (click)="onSelectPokemon(pokemon.pokemon.name)">{{ pokemon.pokemon.name}}</li>
+<ul *ngFor="let pokemon of showpokemonsTypeList">
+    <li (click)="onSelectPokemon(pokemon.name)">{{ pokemon.name}} {{pokemon.id}}</li>
 </ul>
+<button (click)="onScroll()">Load more</button>
