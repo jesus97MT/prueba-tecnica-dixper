@@ -1,11 +1,13 @@
 @import "../../assets/color-types";
+@import "../../assets/colors-app";
 
 .container {
     position: fixed;
     overflow-y: auto;
     max-height: 100%;
     height: 100%;
-    margin-left: 0.6em;
+    padding-left: 0.6em;
+    background-color: $white;
     
     ul {
         list-style-type: none;

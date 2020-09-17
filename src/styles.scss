@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "assets/color-type-class";
+@import "assets/colors-app";
 
 
-body{
-margin: 0;
+body {
+    margin: 0;
+    background-color: $lightgrey;
 }
 .pokemon-type-button {
     letter-spacing: 1.5px;

@@ -1,14 +1,16 @@
+@import "../../../assets/colors-app";
+
 .pokemon-card {
-    background-color: white;
+    background-color: $white;
     cursor: pointer;
     padding: 1em;
     margin: 2em;
     border-radius: 15px;
     position: relative;
     max-width: 400px;
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 15px 0px $black-shadow;
     &.-selected {
-        box-shadow: 0px 0px 15px 0px rgba(41,255,162,0.3);
+        box-shadow: 0px 0px 15px 0px $green-shadow;
     }
 
     .floaing-info {
@@ -18,28 +20,28 @@
         padding: 1em;
         width: 40px;
         height: 40px;
-        background-color: white;
+        background-color: $white;
         text-align: center;
         line-height: 40px;
-        color: grey;
+        color: $grey;
         font-weight: bold;
        
 
 
         &.-left {
             left: -20px;
-            box-shadow: -3px -3px 15px 0px rgba(0,0,0,0.3);
+            box-shadow: -3px -3px 15px 0px $black-shadow;
             
             &.-selected {
-                box-shadow:-3px -3px 15px 0px rgba(41,255,162,0.3);
+                box-shadow:-3px -3px 15px 0px $green-shadow;
             }
         }
         &.-right {
             right: -20px;
-            box-shadow: 3px -3px 15px 0px rgba(0,0,0,0.3);
+            box-shadow: 3px -3px 15px 0px $black-shadow;
             
             &.-selected {
-                box-shadow: 3px -3px 15px 0px rgba(41,255,162,0.3);
+                box-shadow: 3px -3px 15px 0px $green-shadow;
             }
         }
     }
@@ -50,7 +52,7 @@
         left: 50%;
         transform: translate(-50%, -5%);
         font-size: 120px;
-        color: lightgray;
+        color: $lightgrey;
         font-weight: bold;
         z-index: 0;
     }
@@ -70,7 +72,7 @@
         display: block;
         text-align: center;
         .name {
-            color: gray;
+            color: $grey;
             font-weight: bold;
             font-size: 32px;
         }

@@ -12,6 +12,7 @@ import { PokemonMainListComponent } from './pokemon-main-list/pokemon-main-list.
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { PokemonCardSimpleComponent } from './components/pokemon-card-simple/pokemon-card-simple.component';
 import { PokemonStatsComponent } from './components/pokemon-stats/pokemon-stats.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PokemonStatsComponent } from './components/pokemon-stats/pokemon-stats.
     PokemonCardComponent,
     PokemonCardSimpleComponent,
     PokemonStatsComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

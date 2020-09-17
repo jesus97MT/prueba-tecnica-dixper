@@ -1,3 +1,6 @@
+@import "../../assets/colors-app";
+
+
 .container {
     position: fixed;
     right: 0;
@@ -7,6 +10,7 @@
     width: 30%;
     transition:transform 0.4s linear;
     transform: translateX(1000px);
+    background-color: $white;
 
     &.-open {
         transform: translateX(0);

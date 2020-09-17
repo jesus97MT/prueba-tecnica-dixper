@@ -1,5 +1,7 @@
+@import "../../../assets/colors-app";
+
 .pokemon-card {
-    background: linear-gradient(0deg, white 60%, lightgrey 40%);
+    background: linear-gradient(0deg, $white 60%, $lightgrey 40%);
     cursor: pointer;
     padding: 1em;
     margin: 4em;
@@ -13,10 +15,10 @@
         padding: 1em;
         width: 40px;
         height: 40px;
-        background-color: white;
+        background-color: $white;
         text-align: center;
         line-height: 40px;
-        color: grey;
+        color: $grey;
         font-weight: bold;
 
         &.-left {
@@ -33,7 +35,7 @@
         left: 50%;
         transform: translate(-50%, -5%);
         font-size: 120px;
-        color: white;
+        color: $white;
         font-weight: bold;
         z-index: 0;
     }
@@ -53,7 +55,7 @@
         display: block;
         text-align: center;
         .name {
-            color: gray;
+            color: $grey;
             font-weight: bold;
             font-size: 32px;
         }

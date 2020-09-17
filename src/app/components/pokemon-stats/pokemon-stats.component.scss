@@ -1,3 +1,5 @@
+@import "../../../assets/colors-app";
+
 .container {
     padding-right: 2em;
     ul {
@@ -6,6 +8,8 @@
             list-style: none;
             display: flex;
             padding: 0.5em;
+            color: $grey;
+            font-weight: bold;
             .name {
                 flex-basis: 100%;
                 text-align: end;
@@ -23,20 +27,20 @@
                     border-radius: 4px;
                     height: 12px;
                     width: 100%;
-                    background-color: lightgray;
+                    background-color: $lightgrey;
                     .-filled {
                         border-radius: 4px;
                         height: 12px;
                         width: 0%;
 
                         &.red {
-                            background-color: red;
+                            background-color: $red;
                         }
                         &.yellow {
-                            background-color: yellow;
+                            background-color: $yellow;
                         }
                         &.green {
-                            background-color: green;
+                            background-color: $green;
                         }
                     }
                 }

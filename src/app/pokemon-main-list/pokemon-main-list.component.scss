@@ -1,11 +1,13 @@
+@import "../../assets/colors-app";
+
 .container {
-    margin-left:9em;
+    margin-left: 9em;
     margin-right: -4em;
     display: flex;
     flex-wrap: wrap;
-    background-color: lightgray;
-    width: 100%;//60
-    transition:width 0.3s linear;
+    background-color: $lightgrey;
+    width: 100%;
+    transition: width 0.3s linear;
 
     &.-open {
         width: 60%;
@@ -13,9 +15,14 @@
 
     div {
         flex: 0 50%;
-        /*demo*/
-        box-sizing:border-box;
+        box-sizing: border-box;
         list-style-type: none;
     }
-}
 
+    .spinner {
+        position: fixed;
+        margin-left: 40%;
+        margin-top: 10%;
+        text-align: center;
+    }
+}
