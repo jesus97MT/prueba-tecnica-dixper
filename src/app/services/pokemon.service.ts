@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, BehaviorSubject, concat, forkJoin, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable, BehaviorSubject, forkJoin } from 'rxjs';
 
 import * as _ from "lodash";
 
@@ -38,7 +37,7 @@ export class PokemonService {
     return this.http.get(url).subscribe(data => this.pokemonTypesList$.next(data['results']));
   }
 
-  getPokemonsTypeList() { //cargarmos  los datos de los 6 primeros
+  getPokemonsTypeList() {
     const url = `https://pokeapi.co/api/v2/type/${this.typePokemon}`;
     return this.http.get(url).subscribe(data => {
       this.allPokemons = data['pokemon'];
@@ -47,7 +46,7 @@ export class PokemonService {
     });
   }
 
-  setPokemonsDataType() { //ToDo comprobar limite si se pasa del length de los pokemons
+  setPokemonsDataType() {
     const pokemonsToAdd = this.allPokemons.slice(this.offset, this.skip);
     const requests = pokemonsToAdd.map(pokemon => this.http.get(pokemon.pokemon.url));
 
@@ -68,7 +67,7 @@ export class PokemonService {
   changeTypePokemon(newType) {
     this.typePokemon = newType;
     this.resetData();
-    setTimeout(() =>this.getPokemonsTypeList(), 2000);//ToDo delay(?)
+    setTimeout(() => this.getPokemonsTypeList(), 2000);
   }
 
   resetData() {
