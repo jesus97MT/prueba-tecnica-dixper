@@ -1,3 +1,9 @@
-<ul *ngFor="let pokemonType of pokemonTypeList">
-    <li (click)="onChangePokemonType(pokemonType.name)">{{ pokemonType.name }}</li>
-</ul>
+<div class="container">
+    <ul *ngFor="let pokemonType of pokemonTypeList">
+        <li (click)="onChangePokemonType(pokemonType.name)">
+            <button class="pokemon-type-button" [ngClass]="typeSelected === pokemonType.name ? 'type-'+pokemonType.name + ' -selected' : 'type-'+pokemonType.name">
+                {{ pokemonType.name | uppercase}}
+            </button>
+        </li>
+    </ul>
+</div>

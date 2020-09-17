@@ -9,8 +9,10 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class PokemonTypeListComponent implements OnInit {
   public pokemonTypeList;
+  public typeSelected;
   
   constructor(private pokemonService: PokemonService) {
+    this.typeSelected = this.pokemonService.getTypePokemonSelected();
     this.loadPokemonTypes();
     this.pokemonService.pokemonTypesList.subscribe((data) => {
       this.pokemonTypeList = data;
@@ -27,6 +29,7 @@ export class PokemonTypeListComponent implements OnInit {
   }
 
   onChangePokemonType(pokemonType) {
+    this.typeSelected = pokemonType;
     this.pokemonService.changeTypePokemon(pokemonType);
   }
 

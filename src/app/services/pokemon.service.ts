@@ -86,4 +86,8 @@ export class PokemonService {
     this.pokemonSelected$.next(pokemonSelected);
   }
 
+  getTypePokemonSelected() {
+    return this.typePokemon;
+  }
+
 }

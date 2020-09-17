@@ -1,0 +1,261 @@
+@import "color-types";
+
+.type-normal {
+    color: $color-normal;
+    &:hover {
+        background-color: $color-normal;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-normal;
+        color: white;;
+    }
+}
+
+.type-fighting {
+    color: $color-fighting;
+    &:hover {
+        background-color: $color-fighting;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-fighting;
+        color: white;;
+    }
+}
+
+.type-flying {
+    color: $color-flying;
+    &:hover {
+        background-color: $color-flying;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-flying;
+        color: white;;
+    }
+}
+
+.type-poison {
+    color: $color-poison;
+    &:hover {
+        background-color: $color-poison;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-poison;
+        color: white;;
+    }
+}
+
+.type-ground {
+    color: $color-ground;
+    &:hover {
+        background-color: $color-ground;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-ground;
+        color: white;;
+    }
+}
+
+.type-rock {
+    color: $color-rock;
+    &:hover {
+        background-color: $color-rock;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-rock;
+        color: white;;
+    }
+}
+
+.type-bug {
+    color: $color-bug;
+    &:hover {
+        background-color: $color-bug;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-bug;
+        color: white;;
+    }
+}
+
+.type-ghost {
+    color: $color-ghost;
+    &:hover {
+        background-color: $color-ghost;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-ghost;
+        color: white;;
+    }
+}
+
+.type-steel {
+    color: $color-steel;
+    &:hover {
+        background-color: $color-steel;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-steel;
+        color: white;;
+    }
+}
+
+.type-fire {
+    color: $color-fire;
+    &:hover {
+        background-color: $color-fire;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-fire;
+        color: white;;
+    }
+}
+
+.type-water {
+    color: $color-water;
+    &:hover {
+        background-color: $color-water;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-water;
+        color: white;;
+    }
+}
+
+.type-grass {
+    color: $color-grass;
+    &:hover {
+        background-color: $color-grass;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-grass;
+        color: white;;
+    }
+}
+
+.type-electric {
+    color: $color-electric;
+    &:hover {
+        background-color: $color-electric;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-electric;
+        color: white;;
+    }
+}
+
+.type-psychic {
+    color: $color-psychic;
+    &:hover {
+        background-color: $color-psychic;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-psychic;
+        color: white;;
+    }
+}
+
+.type-ice {
+    color: $color-ice;
+    &:hover {
+        background-color: $color-ice;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-ice;
+        color: white;;
+    }
+}
+
+.type-dragon {
+    color: $color-dragon;
+    &:hover {
+        background-color: $color-dragon;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-dragon;
+        color: white;;
+    }
+}
+
+.type-dark {
+    color: $color-dark;
+    &:hover {
+        background-color: $color-dark;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-dark;
+        color: white;;
+    }
+}
+
+.type-fairy {
+    color: $color-fairy;
+    &:hover {
+        background-color: $color-fairy;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-fairy;
+        color: white;;
+    }
+}
+
+.type-unknown {
+    color: $color-unknown;
+    &:hover {
+        background-color: $color-unknown;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-unknown;
+        color: white;;
+    }
+}
+
+.type-shadow {
+    color: $color-shadow;
+    &:hover {
+        background-color: $color-shadow;
+        color: white;
+    }
+
+    &.-selected {
+        background-color: $color-shadow;
+        color: white;;
+    }
+}

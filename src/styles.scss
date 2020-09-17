@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "assets/color-type-class";
+
+.-type-normal { }
+
+.pokemon-type-button {
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    padding: 0.75em 3em;
+    border-style: none;
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+
+
+    &:focus {
+        outline: none;
+
+    }
+
+}
