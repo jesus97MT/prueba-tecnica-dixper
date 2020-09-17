@@ -6,7 +6,7 @@
     class="container"
 >
     <ul *ngFor="let pokemon of showpokemonsTypeList">
-        <li style="padding: 5em;" (click)="onSelectPokemon(pokemon.id)">{{ pokemon.name }} {{pokemon.id}}</li>
+        <app-pokemon-card [pokemon]="pokemon" [idPokemonSelected]="idPokemonSelected" (click)="onSelectPokemon(pokemon.id)"></app-pokemon-card>
     </ul>
     <button (click)="onScroll()">Load more</button>
 </div>

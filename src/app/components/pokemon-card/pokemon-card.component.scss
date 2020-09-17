@@ -1,0 +1,87 @@
+.pokemon-card {
+    background-color: white;
+    cursor: pointer;
+    padding: 1em;
+    margin: 4em;
+    border-radius: 15px;
+    position: relative;
+    max-width: 400px;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    &.-selected {
+        box-shadow: 0px 0px 15px 0px rgba(41,255,162,0.75);
+    }
+
+    .floaing-info {
+        position: absolute;
+        top: -20px;
+        border-radius: 50%;
+        padding: 1em;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        text-align: center;
+        line-height: 40px;
+        color: grey;
+        font-weight: bold;
+       
+
+
+        &.-left {
+            left: -20px;
+            box-shadow: -3px -3px 15px 0px rgba(0,0,0,0.75);
+            &.-selected {
+                box-shadow:-3px -3px 15px 0px rgba(41,255,162,0.75);
+            }
+        }
+        &.-right {
+            right: -40px;
+            box-shadow: 3px -3px 15px 0px rgba(0,0,0,0.75);
+            &.-selected {
+                box-shadow: 3px -3px 15px 0px rgba(41,255,162,0.75);
+            }
+        }
+    }
+
+    .background-id {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -5%);
+        font-size: 120px;
+        color: lightgray;
+        font-weight: bold;
+        z-index: 0;
+    }
+
+    .image {
+        position: absolute;
+        z-index: 100;
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+    }
+
+    .data {
+        margin: 8em 0 3em 0;
+        display: block;
+        text-align: center;
+        .name {
+            color: gray;
+            font-weight: bold;
+            font-size: 32px;
+        }
+        .types {
+            margin-top: 3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .type {
+                font-weight: bold;
+                padding: 2em 1em;
+            }
+        }
+    }
+}

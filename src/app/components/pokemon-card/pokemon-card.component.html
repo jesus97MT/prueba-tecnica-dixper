@@ -1,0 +1,21 @@
+<div class="pokemon-card" [ngClass]="idPokemonSelected === pokemon['id'] ? '-selected':''">
+
+    <div>
+        <div style="display:flex">
+            <span class="floaing-info -left"[ngClass]="idPokemonSelected === pokemon['id'] ? '-selected':''" >{{pokemon['height']}}m</span>
+            <span class="floaing-info -right" [ngClass]="idPokemonSelected === pokemon['id'] ? '-selected':''">{{pokemon['weight']}}kg</span>
+        </div>
+        <span class="background-id">#{{pokemon['id']}}</span>
+        <img class="image" [src]="pokemon['sprites'].front_default">
+        <div class="data">
+            <span class="name">{{pokemon['name'] | titlecase}}</span>
+            <div class="types">
+                <div *ngFor="let type of pokemon['types']">
+                    <span class="type" [ngClass]="'type-' + type.type.name">{{ type.type.name | uppercase }}</span>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>

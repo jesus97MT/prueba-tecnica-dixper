@@ -10,6 +10,7 @@ export class PokemonMainListComponent implements OnInit {
   public pokemonsTypeList = {};
   public showpokemonsTypeList = [];
   public isLoadingData = false;
+  public idPokemonSelected = '';
   
   constructor(private pokemonService: PokemonService) {
     this.loadPokemons();
@@ -30,6 +31,7 @@ export class PokemonMainListComponent implements OnInit {
   }
 
   onSelectPokemon(idPokemon) {
+    this.idPokemonSelected = idPokemon;
     this.pokemonService.selectPokemon(idPokemon);
   }
 
