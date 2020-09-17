@@ -1,0 +1,49 @@
+.container {
+    padding-right: 2em;
+    ul {
+        padding: 0;
+        .stat {
+            list-style: none;
+            display: flex;
+            padding: 0.5em;
+            .name {
+                flex-basis: 100%;
+                text-align: end;
+                padding-right: 1em;
+                flex-shrink: 2;
+            }
+            .number {
+                width: 100%;
+                display: flex;
+
+                .number-stat{
+                    padding:0 1em; 
+                }
+                .progress-bar {
+                    border-radius: 4px;
+                    height: 12px;
+                    width: 100%;
+                    background-color: lightgray;
+                    .-filled {
+                        border-radius: 4px;
+                        height: 12px;
+                        &.red {
+                            background-color: red;
+                        }
+                        &.yellow {
+                            background-color: yellow;
+                        }
+                        &.green {
+                            background-color: green;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
+
+
+    
+}

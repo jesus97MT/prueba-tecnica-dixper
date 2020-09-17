@@ -1,15 +1,10 @@
 .pokemon-card {
-    background-color: white;
+    background: linear-gradient(0deg, white 60%, lightgrey 40%);
     cursor: pointer;
     padding: 1em;
     margin: 4em;
     border-radius: 15px;
     position: relative;
-    max-width: 400px;
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.3);
-    &.-selected {
-        box-shadow: 0px 0px 15px 0px rgba(41,255,162,0.3);
-    }
 
     .floaing-info {
         position: absolute;
@@ -23,24 +18,12 @@
         line-height: 40px;
         color: grey;
         font-weight: bold;
-       
-
 
         &.-left {
             left: -20px;
-            box-shadow: -3px -3px 15px 0px rgba(0,0,0,0.3);
-            
-            &.-selected {
-                box-shadow:-3px -3px 15px 0px rgba(41,255,162,0.3);
-            }
         }
         &.-right {
             right: -20px;
-            box-shadow: 3px -3px 15px 0px rgba(0,0,0,0.3);
-            
-            &.-selected {
-                box-shadow: 3px -3px 15px 0px rgba(41,255,162,0.3);
-            }
         }
     }
 
@@ -50,7 +33,7 @@
         left: 50%;
         transform: translate(-50%, -5%);
         font-size: 120px;
-        color: lightgray;
+        color: white;
         font-weight: bold;
         z-index: 0;
     }

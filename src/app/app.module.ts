@@ -10,6 +10,8 @@ import { PokemonTypeListComponent } from './pokemon-type-list/pokemon-type-list.
 import { PokemonInfoComponent } from './pokemon-info/pokemon-info.component';
 import { PokemonMainListComponent } from './pokemon-main-list/pokemon-main-list.component';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
+import { PokemonCardSimpleComponent } from './components/pokemon-card-simple/pokemon-card-simple.component';
+import { PokemonStatsComponent } from './components/pokemon-stats/pokemon-stats.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.com
     PokemonInfoComponent,
     PokemonMainListComponent,
     PokemonCardComponent,
+    PokemonCardSimpleComponent,
+    PokemonStatsComponent,
   ],
   imports: [
     BrowserModule,

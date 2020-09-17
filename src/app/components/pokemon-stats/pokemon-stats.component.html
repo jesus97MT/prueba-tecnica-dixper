@@ -1,0 +1,14 @@
+<div class="container">
+    <ul >
+        <li class="stat" *ngFor="let stat of pokemon['stats']">
+            <div class="name">{{stat.stat.name | titlecase}}</div>
+            <div class="number">
+                <span class="number-stat">{{stat.base_stat}}</span>
+                <div class="progress-bar" >
+                    <div [ngStyle]="{'width': stat.base_stat*100/250+'%'}" [ngClass]="{'red':  (stat.base_stat*100/250) < 33.33, 'yellow':((stat.base_stat*100/250) > 33.33) && ((stat.base_stat*100/250) <= 66.66), 'green': (stat.base_stat*100/250) > 66.66}" class="-filled"></div>
+                </div>
+
+            </div>
+            
+    </ul>
+</div>

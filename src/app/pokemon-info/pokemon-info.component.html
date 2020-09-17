@@ -1,1 +1,5 @@
-<div *ngIf="showSidebar">{{pokemonData['name']}}</div>
+<div class="container" *ngIf="showSidebar">
+    <app-pokemon-card-simple [pokemon]="pokemon"></app-pokemon-card-simple>
+    <app-pokemon-stats [pokemon]="pokemon"></app-pokemon-stats>
+
+</div>
