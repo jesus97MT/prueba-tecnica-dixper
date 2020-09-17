@@ -1,4 +1,4 @@
-<div class="container" *ngIf="showSidebar">
+<div class="container"  [ngClass]="{'-open': showSidebar}">
     <app-pokemon-card-simple [pokemon]="pokemon"></app-pokemon-card-simple>
     <app-pokemon-stats [pokemon]="pokemon"></app-pokemon-stats>
 

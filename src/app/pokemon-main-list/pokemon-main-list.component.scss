@@ -1,11 +1,17 @@
 .container {
     margin-left:9em;
+    margin-right: -4em;
     display: flex;
     flex-wrap: wrap;
     background-color: lightgray;
-    width: 60%;
+    width: 100%;//60
+    transition:width 0.3s linear;
 
-    ul {
+    &.-open {
+        width: 60%;
+    }
+
+    div {
         flex: 0 50%;
         /*demo*/
         box-sizing:border-box;

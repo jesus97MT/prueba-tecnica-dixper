@@ -16,8 +16,8 @@
                 width: 100%;
                 display: flex;
 
-                .number-stat{
-                    padding:0 1em; 
+                .number-stat {
+                    padding: 0 1em;
                 }
                 .progress-bar {
                     border-radius: 4px;
@@ -27,6 +27,8 @@
                     .-filled {
                         border-radius: 4px;
                         height: 12px;
+                        width: 0%;
+
                         &.red {
                             background-color: red;
                         }
@@ -39,11 +41,6 @@
                     }
                 }
             }
-            
         }
     }
-    
-
-
-    
 }

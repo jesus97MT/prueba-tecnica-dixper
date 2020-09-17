@@ -20,6 +20,8 @@ export class PokemonMainListComponent implements OnInit {
       console.log(this.showpokemonsTypeList)
     });
 
+    this.pokemonService.pokemonSelected.subscribe((data: object) => this.idPokemonSelected = data && data['id'] || '');
+
   }
 
   ngOnInit(): void {

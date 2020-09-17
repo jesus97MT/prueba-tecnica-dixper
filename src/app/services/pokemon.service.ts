@@ -73,6 +73,7 @@ export class PokemonService {
 
   resetData() {
     this.pokemonsTypeList$.next([]);
+    this.pokemonSelected$.next({});
     this.allPokemons = [];
     this.skip = 6;
     this.offset = 0;
@@ -83,7 +84,8 @@ export class PokemonService {
     const pokemonDataList = this.pokemonsTypeList$.getValue();
     const pokemonSelected = pokemonDataList.find(pokemon => pokemon.id === idPokemon);
 
-    this.pokemonSelected$.next(pokemonSelected);
+    if (pokemonSelected)
+      this.pokemonSelected$.next(pokemonSelected);
   }
 
   getTypePokemonSelected() {

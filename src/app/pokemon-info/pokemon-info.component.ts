@@ -18,7 +18,7 @@ export class PokemonInfoComponent implements OnInit {
   constructor(private pokemonService: PokemonService) {
     this.pokemonService.pokemonSelected.subscribe((data: Object) => {
       this.pokemon = data;
-      if (!_.isEmpty(data)) this.showSidebar = true;
+      this.showSidebar = !_.isEmpty(data);
     });
   }
 

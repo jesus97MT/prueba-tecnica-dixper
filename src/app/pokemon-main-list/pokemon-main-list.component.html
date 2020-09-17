@@ -2,11 +2,12 @@
     infiniteScroll
     [infiniteScrollDistance]="1"
     [infiniteScrollThrottle]="50"
+    [ngClass]="{'-open': idPokemonSelected}"
     (scrolled)="onScroll()"
     class="container"
 >
-    <ul *ngFor="let pokemon of showpokemonsTypeList">
+    <div *ngFor="let pokemon of showpokemonsTypeList" class="card">
         <app-pokemon-card [pokemon]="pokemon" [idPokemonSelected]="idPokemonSelected" (click)="onSelectPokemon(pokemon.id)"></app-pokemon-card>
-    </ul>
+    </div>
     <button (click)="onScroll()">Load more</button>
 </div>
