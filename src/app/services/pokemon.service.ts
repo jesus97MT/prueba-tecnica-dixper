@@ -40,7 +40,6 @@ export class PokemonService {
 
   getPokemonsTypeList() { //cargarmos  los datos de los 6 primeros
     const url = `https://pokeapi.co/api/v2/type/${this.typePokemon}`;
-    console.log("daada")
     return this.http.get(url).subscribe(data => {
       this.allPokemons = data['pokemon'];
 
@@ -50,23 +49,16 @@ export class PokemonService {
 
   setPokemonsDataType() { //ToDo comprobar limite si se pasa del length de los pokemons
     const pokemonsToAdd = this.allPokemons.slice(this.offset, this.skip);
-    //console.log(pokemonsToAdd);
-    let requests = pokemonsToAdd.map(pokemon => this.http.get(pokemon.pokemon.url));
+    const requests = pokemonsToAdd.map(pokemon => this.http.get(pokemon.pokemon.url));
+
     forkJoin(...requests).subscribe(data => {
       let oldData: any = this.pokemonsTypeList$.getValue();
-
       let newData = oldData && oldData.length ? _.concat(this.pokemonsTypeList$.getValue(), data) : data;
-      console.log(newData);
+
       this.pokemonsTypeList$.next(newData);
-    })
-
-  }
-
-  getPokemonData(url) {
-    return this.http.get(url).subscribe(data => {
-      console.log(data);
     });
   }
+
   onScroll() {
     this.skip += this.limit;
     this.offset += this.limit;

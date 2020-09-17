@@ -8,7 +8,7 @@ import * as _ from "lodash";
 @Component({
   selector: 'app-pokemon-info',
   templateUrl: './pokemon-info.component.html',
-  styleUrls: ['./pokemon-info.component.css']
+  styleUrls: ['./pokemon-info.component.scss']
 })
 export class PokemonInfoComponent implements OnInit {
 
