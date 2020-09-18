@@ -2,21 +2,19 @@
 
 .container {
     margin-left: 9em;
-    margin-right: -4em;
     display: flex;
     flex-wrap: wrap;
     background-color: $lightgrey;
-    width: 100%;
     transition: width 0.3s linear;
-
     &.-open {
         width: 60%;
     }
 
-    div {
-        flex: 0 50%;
+    .card {
         box-sizing: border-box;
         list-style-type: none;
+        flex: 1 1 50%;
+        align-self: center;
     }
 
     .spinner {

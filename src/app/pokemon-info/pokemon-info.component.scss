@@ -9,8 +9,9 @@
     height: 100%;
     width: 30%;
     transition:transform 0.4s linear;
-    transform: translateX(1000px);
+    transform: translateX(1500px);
     background-color: $white;
+    box-shadow: 0px 0px 15px 0px $black-shadow;
 
     &.-open {
         transform: translateX(0);

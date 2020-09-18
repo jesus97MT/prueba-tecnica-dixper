@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build -sm -ec -bh /repo name/ & ngh --silent=false"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/lodash": "^4.14.161",
     "@types/node": "^12.11.1",
+    "angular-cli-ghpages": "^0.6.2",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",

@@ -11,13 +11,12 @@ export class PokemonMainListComponent implements OnInit {
   public showpokemonsTypeList = [];
   public isLoadingData = false;
   public idPokemonSelected = '';
-  
+
   constructor(private pokemonService: PokemonService) {
     this.loadPokemons();
     this.pokemonService.pokemonsTypeList.subscribe((data: Array<Object>) => {
       this.showpokemonsTypeList = data;
       this.isLoadingData = false;
-      console.log(this.showpokemonsTypeList)
     });
 
     this.pokemonService.pokemonSelected.subscribe((data: object) => this.idPokemonSelected = data && data['id'] || '');
@@ -39,14 +38,9 @@ export class PokemonMainListComponent implements OnInit {
 
   onScroll() {
     if (!this.isLoadingData) {
-        this.pokemonService.onScroll();
-        this.isLoadingData = true;
+      this.pokemonService.onScroll();
+      this.isLoadingData = true;
     }
   }
-
-  onScrollDown() {
-    console.log("aaaaaaa")
-  }
-
 
 }

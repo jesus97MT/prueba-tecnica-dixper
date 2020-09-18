@@ -1,91 +1,98 @@
 @import "../../../assets/colors-app";
 
-.pokemon-card {
-    background-color: $white;
-    cursor: pointer;
-    padding: 1em;
-    margin: 2em;
-    border-radius: 15px;
-    position: relative;
-    max-width: 400px;
-    box-shadow: 0px 0px 15px 0px $black-shadow;
-    &.-selected {
-        box-shadow: 0px 0px 15px 0px $green-shadow;
-    }
-
-    .floaing-info {
-        position: absolute;
-        top: -20px;
-        border-radius: 50%;
-        padding: 1em;
-        width: 40px;
-        height: 40px;
+:host {
+    display: flex;
+    justify-content: center;
+    .pokemon-card {
         background-color: $white;
-        text-align: center;
-        line-height: 40px;
-        color: $grey;
-        font-weight: bold;
-       
-
-
-        &.-left {
-            left: -20px;
-            box-shadow: -3px -3px 15px 0px $black-shadow;
-            
-            &.-selected {
-                box-shadow:-3px -3px 15px 0px $green-shadow;
-            }
+        cursor: pointer;
+        padding: 1em;
+        margin: 2em;
+        border-radius: 15px;
+        position: relative;
+        min-width: 350px;
+        max-width: 450px;;
+        box-shadow: 0px 0px 15px 0px $black-shadow;
+        flex-grow: 3;
+        &.-selected {
+            box-shadow: 0px 0px 15px 0px $green-shadow;
         }
-        &.-right {
-            right: -20px;
-            box-shadow: 3px -3px 15px 0px $black-shadow;
-            
-            &.-selected {
-                box-shadow: 3px -3px 15px 0px $green-shadow;
-            }
-        }
-    }
-
-    .background-id {
-        position: absolute;
-        top: 5%;
-        left: 50%;
-        transform: translate(-50%, -5%);
-        font-size: 120px;
-        color: $lightgrey;
-        font-weight: bold;
-        z-index: 0;
-    }
-
-    .image {
-        position: absolute;
-        z-index: 100;
-        width: 100px;
-        height: 100px;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -20%);
-    }
-
-    .data {
-        margin: 8em 0 3em 0;
-        display: block;
-        text-align: center;
-        .name {
+    
+        .floaing-info {
+            position: absolute;
+            top: -20px;
+            border-radius: 50%;
+            padding: 1em;
+            width: 40px;
+            height: 40px;
+            background-color: $white;
+            text-align: center;
+            line-height: 40px;
             color: $grey;
             font-weight: bold;
-            font-size: 32px;
+           
+    
+    
+            &.-left {
+                left: -20px;
+                box-shadow: -3px -3px 15px 0px $black-shadow;
+                
+                &.-selected {
+                    box-shadow:-3px -3px 15px 0px $green-shadow;
+                }
+            }
+            &.-right {
+                right: -20px;
+                box-shadow: 3px -3px 15px 0px $black-shadow;
+                
+                &.-selected {
+                    box-shadow: 3px -3px 15px 0px $green-shadow;
+                }
+            }
         }
-        .types {
-            margin-top: 3em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            .type {
+    
+        .background-id {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, -5%);
+            font-size: 120px;
+            color: $lightgrey;
+            font-weight: bold;
+            z-index: 0;
+        }
+    
+        .image {
+            position: absolute;
+            z-index: 100;
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -20%);
+        }
+    
+        .data {
+            margin: 8em 0 3em 0;
+            display: block;
+            text-align: center;
+            .name {
+                color: $grey;
                 font-weight: bold;
-                padding: 2em 1em;
+                font-size: 32px;
+            }
+            .types {
+                margin-top: 3em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                .type {
+                    font-weight: bold;
+                    padding: 2em 1em;
+                }
             }
         }
     }
+    
 }
