@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, BehaviorSubject, forkJoin } from 'rxjs';
+import { Observable, BehaviorSubject, forkJoin, Subscription } from 'rxjs';
 
 import * as _ from "lodash";
 
@@ -10,67 +10,67 @@ import * as _ from "lodash";
 })
 export class PokemonService {
 
-  private pokemonTypesList$: BehaviorSubject<Array<any>> = new BehaviorSubject(([]));
-  public readonly pokemonTypesList: Observable<Array<any>> = this.pokemonTypesList$.asObservable();
+  private pokemonTypesList$: BehaviorSubject<Array<Object>> = new BehaviorSubject(([]));
+  public readonly pokemonTypesList: Observable<Array<Object>> = this.pokemonTypesList$.asObservable();
 
-  private pokemonsTypeList$: BehaviorSubject<Array<any>> = new BehaviorSubject(([]));
-  public readonly pokemonsTypeList: Observable<Array<any>> = this.pokemonsTypeList$.asObservable();
+  private pokemonsTypeList$: BehaviorSubject<Array<Object>> = new BehaviorSubject(([]));
+  public readonly pokemonsTypeList: Observable<Array<Object>> = this.pokemonsTypeList$.asObservable();
 
   private pokemonSelected$: BehaviorSubject<{}> = new BehaviorSubject(({}));
   public readonly pokemonSelected: Observable<{}> = this.pokemonSelected$.asObservable();
 
-  private typePokemon = 'normal'; //as default
+  private typePokemon: string = 'normal'; //as default
 
-  private allPokemons = [];
+  private allPokemons: Array<Object> = [];
 
-  private skip = 6;
-  private offset = 0;
-  private limit = 6;
+  private skip: number = 6;
+  private offset: number = 0;
+  private limit: number = 6;
 
   constructor(private http: HttpClient) {
 
 
   }
 
-  getPokemonTypesList() {
-    const url = "https://pokeapi.co/api/v2/type";
-    return this.http.get(url).subscribe(data => this.pokemonTypesList$.next(data['results']));
+  getPokemonTypesList(): Subscription {
+    const url: string = "https://pokeapi.co/api/v2/type";
+    return this.http.get(url).subscribe((data: Object) => this.pokemonTypesList$.next(data['results']));
   }
 
-  getPokemonsTypeList() {
-    const url = `https://pokeapi.co/api/v2/type/${this.typePokemon}`;
-    return this.http.get(url).subscribe(data => {
+  getPokemonsTypeList(): Subscription {
+    const url: string = `https://pokeapi.co/api/v2/type/${this.typePokemon}`;
+    return this.http.get(url).subscribe((data: Object) => {
       this.allPokemons = data['pokemon'];
 
       this.setPokemonsDataType();
     });
   }
 
-  setPokemonsDataType() {
-    const pokemonsToAdd = this.allPokemons.slice(this.offset, this.skip);
-    const requests = pokemonsToAdd.map(pokemon => this.http.get(pokemon.pokemon.url));
+  setPokemonsDataType(): void  {
+    const pokemonsToAdd: Array<Object> = this.allPokemons.slice(this.offset, this.skip);
+    const requests: Array<Observable<Object>> = pokemonsToAdd.map(pokemon => this.http.get(pokemon['pokemon'].url));
 
-    forkJoin(...requests).subscribe(data => {
-      let oldData: any = this.pokemonsTypeList$.getValue();
-      let newData = oldData && oldData.length ? _.concat(this.pokemonsTypeList$.getValue(), data) : data;
+    forkJoin(...requests).subscribe((data: Array<object>) => {
+      let oldData: Array<object> = this.pokemonsTypeList$.getValue();
+      let newData: Array<object> = oldData && oldData.length ? _.concat(this.pokemonsTypeList$.getValue(), data) : data;
 
       this.pokemonsTypeList$.next(newData);
     });
   }
 
-  onScroll() {
+  onScroll(): void {
     this.skip += this.limit;
     this.offset += this.limit;
     this.setPokemonsDataType();
   }
 
-  changeTypePokemon(newType) {
+  changeTypePokemon(newType: string): void {
     this.typePokemon = newType;
     this.resetData();
-    setTimeout(() => this.getPokemonsTypeList(), 2000);
+    setTimeout(() => this.getPokemonsTypeList(), 2000); //delay de 2 segundos
   }
 
-  resetData() {
+  resetData(): void {
     this.pokemonsTypeList$.next([]);
     this.pokemonSelected$.next({});
     this.allPokemons = [];
@@ -79,15 +79,15 @@ export class PokemonService {
     this.limit = 6;
   }
 
-  selectPokemon(idPokemon) {
-    const pokemonDataList = this.pokemonsTypeList$.getValue();
-    const pokemonSelected = pokemonDataList.find(pokemon => pokemon.id === idPokemon);
+  selectPokemon(idPokemon: string): void {
+    const pokemonDataList: Array<object> = this.pokemonsTypeList$.getValue();
+    const pokemonSelected: object = pokemonDataList.find((pokemon: object) => pokemon['id'] === idPokemon);
 
     if (pokemonSelected)
       this.pokemonSelected$.next(pokemonSelected);
   }
 
-  getTypePokemonSelected() {
+  getTypePokemonSelected(): string{
     return this.typePokemon;
   }
 

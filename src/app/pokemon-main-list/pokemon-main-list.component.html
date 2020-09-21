@@ -7,7 +7,7 @@
     class="container"
 >
     <div *ngFor="let pokemon of showpokemonsTypeList" class="card">
-        <app-pokemon-card [pokemon]="pokemon" [idPokemonSelected]="idPokemonSelected" (click)="onSelectPokemon(pokemon.id)"></app-pokemon-card>
+        <app-pokemon-card [pokemon]="pokemon" [idPokemonSelected]="idPokemonSelected" (click)="onSelectPokemon(pokemon['id'])"></app-pokemon-card>
     </div>
     <div class="spinner" *ngIf="!showpokemonsTypeList.length">
         <app-spinner></app-spinner>

@@ -12,11 +12,11 @@ import * as _ from "lodash";
 })
 export class PokemonInfoComponent implements OnInit {
 
-  public pokemon = {};
-  public showSidebar = false;
+  public pokemon:object = {};
+  public showSidebar:boolean = false;
 
   constructor(private pokemonService: PokemonService) {
-    this.pokemonService.pokemonSelected.subscribe((data: Object) => {
+    this.pokemonService.pokemonSelected.subscribe((data: object) => {
       this.pokemon = data;
       this.showSidebar = !_.isEmpty(data);
     });

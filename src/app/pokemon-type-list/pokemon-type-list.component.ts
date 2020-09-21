@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -8,13 +7,13 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrls: ['./pokemon-type-list.component.scss']
 })
 export class PokemonTypeListComponent implements OnInit {
-  public pokemonTypeList;
-  public typeSelected;
+  public pokemonTypeList: Array<object>;
+  public typeSelected: string;
   
   constructor(private pokemonService: PokemonService) {
     this.typeSelected = this.pokemonService.getTypePokemonSelected();
     this.loadPokemonTypes();
-    this.pokemonService.pokemonTypesList.subscribe((data) => {
+    this.pokemonService.pokemonTypesList.subscribe((data: Array<object>) => {
       this.pokemonTypeList = data;
     });
 
@@ -24,11 +23,11 @@ export class PokemonTypeListComponent implements OnInit {
 
   }
 
-  loadPokemonTypes() {
+  loadPokemonTypes(): void {
     this.pokemonService.getPokemonTypesList();
   }
 
-  onChangePokemonType(pokemonType) {
+  onChangePokemonType(pokemonType): void {
     this.typeSelected = pokemonType;
     this.pokemonService.changeTypePokemon(pokemonType);
   }
