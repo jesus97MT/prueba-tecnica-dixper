@@ -27,7 +27,7 @@ export class PokemonTypeListComponent implements OnInit {
     this.pokemonService.getPokemonTypesList();
   }
 
-  onChangePokemonType(pokemonType): void {
+  onChangePokemonType(pokemonType: string): void {
     this.typeSelected = pokemonType;
     this.pokemonService.changeTypePokemon(pokemonType);
   }
