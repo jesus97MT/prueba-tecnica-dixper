@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonType } from '../interfaces/pokemon-type';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -7,13 +8,13 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrls: ['./pokemon-type-list.component.scss']
 })
 export class PokemonTypeListComponent implements OnInit {
-  public pokemonTypeList: Array<object>;
+  public pokemonTypeList: Array<PokemonType>;
   public typeSelected: string;
   
   constructor(private pokemonService: PokemonService) {
     this.typeSelected = this.pokemonService.getTypePokemonSelected();
     this.loadPokemonTypes();
-    this.pokemonService.pokemonTypesList.subscribe((data: Array<object>) => {
+    this.pokemonService.pokemonTypesList.subscribe((data: Array<PokemonType>) => {
       this.pokemonTypeList = data;
     });
 

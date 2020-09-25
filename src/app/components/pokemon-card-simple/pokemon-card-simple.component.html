@@ -4,12 +4,12 @@
             <span class="floaing-info -left"></span>
             <span class="floaing-info -right"></span>
         </div>
-        <span class="background-id">#{{pokemon['id']}}</span>
-        <img class="image" *ngIf="pokemon['sprites']" [src]="pokemon['sprites'].front_default">
+        <span class="background-id">#{{pokemon.id}}</span>
+        <img class="image" *ngIf="pokemon.sprites" [src]="pokemon.sprites['front_default']">
         <div class="data">
-            <span class="name">{{pokemon['name'] | titlecase}}</span>
+            <span class="name">{{pokemon.name | titlecase}}</span>
             <div class="types">
-                <div *ngFor="let type of pokemon['types']">
+                <div *ngFor="let type of pokemon.types">
                     <span class="type" [ngClass]="'type-' + type.type.name">{{ type.type.name | uppercase }}</span>
                 </div>
             </div>

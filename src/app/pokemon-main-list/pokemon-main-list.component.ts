@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonData } from '../interfaces/pokemon-data';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -7,13 +8,13 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrls: ['./pokemon-main-list.component.scss']
 })
 export class PokemonMainListComponent implements OnInit {
-  public showpokemonsTypeList: Array<object> = [];
+  public showpokemonsTypeList: Array<PokemonData> = [];
   public isLoadingData: boolean = false;
-  public idPokemonSelected:string = '';
+  public idPokemonSelected:number;
 
   constructor(private pokemonService: PokemonService) {
     this.loadPokemons();
-    this.pokemonService.pokemonsTypeList.subscribe((data: Array<Object>) => {
+    this.pokemonService.pokemonsTypeList.subscribe((data: Array<PokemonData>) => {
       this.showpokemonsTypeList = data;
       this.isLoadingData = false;
     });
@@ -30,7 +31,7 @@ export class PokemonMainListComponent implements OnInit {
     this.pokemonService.getPokemonsTypeList();
   }
 
-  onSelectPokemon(idPokemon: string): void {
+  onSelectPokemon(idPokemon: number): void {
     this.idPokemonSelected = idPokemon;
     this.pokemonService.selectPokemon(idPokemon);
   }

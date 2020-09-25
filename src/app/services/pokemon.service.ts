@@ -4,20 +4,22 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, forkJoin, Subscription } from 'rxjs';
 
 import * as _ from "lodash";
+import { PokemonType } from '../interfaces/pokemon-type';
+import { PokemonData } from '../interfaces/pokemon-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
 
-  private pokemonTypesList$: BehaviorSubject<Array<Object>> = new BehaviorSubject(([]));
-  public readonly pokemonTypesList: Observable<Array<Object>> = this.pokemonTypesList$.asObservable();
+  private pokemonTypesList$: BehaviorSubject<Array<PokemonType>> = new BehaviorSubject(([]));
+  public readonly pokemonTypesList: Observable<Array<PokemonType>> = this.pokemonTypesList$.asObservable();
 
-  private pokemonsTypeList$: BehaviorSubject<Array<Object>> = new BehaviorSubject(([]));
-  public readonly pokemonsTypeList: Observable<Array<Object>> = this.pokemonsTypeList$.asObservable();
+  private pokemonsTypeList$: BehaviorSubject<Array<PokemonData>> = new BehaviorSubject(([]));
+  public readonly pokemonsTypeList: Observable<Array<PokemonData>> = this.pokemonsTypeList$.asObservable();
 
-  private pokemonSelected$: BehaviorSubject<{}> = new BehaviorSubject(({}));
-  public readonly pokemonSelected: Observable<{}> = this.pokemonSelected$.asObservable();
+  private pokemonSelected$: BehaviorSubject<PokemonData> = new BehaviorSubject((null));
+  public readonly pokemonSelected: Observable<PokemonData> = this.pokemonSelected$.asObservable();
 
   private typePokemon: string = 'normal'; //as default
 
@@ -50,9 +52,9 @@ export class PokemonService {
     const pokemonsToAdd: Array<Object> = this.allPokemons.slice(this.offset, this.skip);
     const requests: Array<Observable<Object>> = pokemonsToAdd.map(pokemon => this.http.get(pokemon['pokemon'].url));
 
-    forkJoin(...requests).subscribe((data: Array<object>) => {
-      let oldData: Array<object> = this.pokemonsTypeList$.getValue();
-      let newData: Array<object> = oldData && oldData.length ? _.concat(this.pokemonsTypeList$.getValue(), data) : data;
+    forkJoin(...requests).subscribe((data: Array<PokemonData>) => {
+      let oldData: Array<PokemonData> = this.pokemonsTypeList$.getValue();
+      let newData: Array<PokemonData> = oldData && oldData.length ? _.concat(this.pokemonsTypeList$.getValue(), data) : data;
 
       this.pokemonsTypeList$.next(newData);
     });
@@ -72,22 +74,22 @@ export class PokemonService {
 
   resetData(): void {
     this.pokemonsTypeList$.next([]);
-    this.pokemonSelected$.next({});
+    this.pokemonSelected$.next(null);
     this.allPokemons = [];
     this.skip = 6;
     this.offset = 0;
     this.limit = 6;
   }
 
-  selectPokemon(idPokemon: string): void {
-    const pokemonDataList: Array<object> = this.pokemonsTypeList$.getValue();
-    const pokemonSelected: object = pokemonDataList.find((pokemon: object) => pokemon['id'] === idPokemon);
+  selectPokemon(idPokemon: number): void {
+    const pokemonDataList: Array<PokemonData> = this.pokemonsTypeList$.getValue();
+    const pokemonSelected: PokemonData = pokemonDataList.find((pokemon: PokemonData) => pokemon.id === idPokemon);
 
     if (pokemonSelected)
       this.pokemonSelected$.next(pokemonSelected);
   }
 
-  getTypePokemonSelected(): string{
+  getTypePokemonSelected(): string {
     return this.typePokemon;
   }
 
